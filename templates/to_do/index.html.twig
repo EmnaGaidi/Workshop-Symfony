@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ToDoController!{% endblock %}
+{% block body %}
+
+<h1>ToDo Liste</h1>
+    <ul class="list-group">
+        {% for cle,element in app.session.get('todoList') %}
+        <li class="list-group-item list-group-item-{% if loop.index is odd  %}light{% else %}secondary{% endif %}">
+            {{ cle }} : {{ element }}
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

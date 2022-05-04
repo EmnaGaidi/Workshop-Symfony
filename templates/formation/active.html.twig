@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for formation in formations %}
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{ formation.id }} : {{ formation.etat }}</div>
+        <div class="card-body text-dark">
+            <h5 class="card-title">{{ formation.designation }}</h5>
+            <p class="card-text">
+                Description : {{ formation.description }} <br>
+                Date debut : {{ formation.dateDebut }} <br>
+                Date fin : {{ formation.dateFin }}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

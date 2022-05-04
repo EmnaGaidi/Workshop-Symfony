@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CvController!{% endblock %}
+
+{% block body %}
+<h1>Bonjour</h1>
+    <p>Je m'appelle {{ firstname|upper }} {{ name|upper }}
+        <br>J'ai {{ age}} ans
+        <br>Je suis de la section {{ section }}
+        <br>La langue est {{ langue }}
+    </p>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for personne in personnes %}
+    <div class="card bg-light mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{ personne.nom|upper }} {{ personne.prenom|capitalize }}</div>
+        <div class="card-body">
+            <h5 class="card-title">ID :{{personne.id  }}</h5>
+            <p class="card-text">
+                Age : {{ personne.age }} <br>
+                Path : {{ personne.path }} <br>
+                CIN : {{ personne.cin }} <br>
+                <a href="{{ path('personne.delete',{id : personne.id}) }}" class="card-link">DELETE</a>
+            </p>
+        </div>
+
+    </div>
+    {% endfor %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link"
+                                     href="{{ path('personne.showAll',{
+                                     page : page-1 > 0 ? page-1 : 1,
+                                         nbre : nbre
+                                     }
+                ) }}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="{{ path('personne.showAll',{page :  1, nbre : nbre}) }}">1</a></li>
+            <li class="page-item"><a class="page-link" href="{{ path('personne.showAll',{page :  2, nbre : nbre}) }}">2</a></li>
+            <li class="page-item"><a class="page-link" href="{{ path('personne.showAll',{page :  3, nbre : nbre}) }}">3</a></li>
+            <li class="page-item"><a class="page-link"
+                                     href="{{ path('personne.showAll',{
+                                     page : page+1>maxPage?maxPage : page+1,
+                                         nbre : nbre}
+                                     ) }}">Next</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+
+{% block title %}
+INDEX ALL
+{% endblock %}
+

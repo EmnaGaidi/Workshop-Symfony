@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+<h2>Liste des personnes d'age inferieur à {{ ageMax }}</h2>
+    {% for personne in personnes %}
+    <div class="card border-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">{{ personne.id }}</div>
+        <div class="card-body text-primary">
+            <h5 class="card-title">{{ personne.nom }} {{ personne.prenom }}</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem nobis, obcaecati perferendis placeat provident quis.</p>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}
+

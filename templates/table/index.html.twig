@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TableController!{% endblock %}
+
+{% block body %}
+<h1>Table with random numbers</h1>
+    <table class="table">
+        {% for element in table %}
+        <tr>
+         <td>{{ element }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="alert alert-info" role="alert">
+        Le nombre de valeurs : {{ table|length }}
+    </div>
+    <div class="alert alert-info" role="alert">
+        MIN : {{ min(table) }}
+    </div>
+    <div class="alert alert-info" role="alert">
+        MAX : {{ max(table) }}
+    </div>
+    <div class="alert alert-info" role="alert">
+        SOMME : {{ table|Somme }}
+    </div>
+    <div class="alert alert-info" role="alert">
+        MOYENNE : {{ table|Moyenne }}
+    </div>
+    <img src="{{ asset('assets/images/')~path|DefaultImage }}">
+{% endblock %}

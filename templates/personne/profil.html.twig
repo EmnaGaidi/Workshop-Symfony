@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="card text-center">
+        <div class="card-header">
+            <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Active</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('personne.delete',{id: personne.id}) }}">Delete</a>
+                </li>
+            </ul>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ personne.prenom }} 's Profile</h5>
+            <p class="card-text">Name : {{ personne.nom }}<br>
+                Firstname : {{ personne.prenom }}<br>
+                Age : {{ personne.age }}<br>
+                CIN : {{ personne.cin }}<br>
+                Path : {{ personne.path }}
+            </p>
+            <a href="{{ path('personne.showAll') }}" class="btn btn-primary">SHOW ALL</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
