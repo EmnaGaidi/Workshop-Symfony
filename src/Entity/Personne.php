@@ -6,6 +6,7 @@ use App\Repository\PersonneRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Faker\Provider\DateTime;
 
+#[ORM\HasLifecycleCallbacks()]
 #[ORM\Entity(repositoryClass: PersonneRepository::class)]
 class Personne
 {
@@ -123,7 +124,7 @@ class Personne
 
         return $this;
     }
-    #[ORM\PrePersist()]
+    #[ORM\PrePersist]
     public function onPersist(){
         $this->created_at = new \DateTime();
         $this->update_at = new \DateTime();
